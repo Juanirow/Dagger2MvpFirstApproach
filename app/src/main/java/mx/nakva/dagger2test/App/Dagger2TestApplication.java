@@ -10,8 +10,19 @@ import android.app.Application;
 
 public class Dagger2TestApplication extends Application {
 
+    public AppComponent appComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        this.appComponent = this.initDagger(this);
+    }
+
+    public AppComponent getAppComponent() {
+        return appComponent;
+    }
+
+    protected AppComponent initDagger(Dagger2TestApplication application) {
+        return DaggerAppComponent.builder().build();
     }
 }

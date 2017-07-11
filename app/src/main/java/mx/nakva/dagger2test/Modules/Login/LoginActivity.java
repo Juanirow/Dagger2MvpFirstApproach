@@ -3,7 +3,11 @@ package mx.nakva.dagger2test.Modules.Login;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.EditText;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import mx.nakva.dagger2test.R;
 
 /**
@@ -14,9 +18,23 @@ import mx.nakva.dagger2test.R;
 
 public class LoginActivity extends AppCompatActivity {
 
+    @BindView(R.id.inputEmail)
+    EditText inputEmail;
+
+    @BindView(R.id.inputPassword)
+    EditText inputPassword;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.btnLogin)
+    public void onClickLogin() {
+
     }
 }

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:name=".App.Dagger2TestApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Modules.Login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

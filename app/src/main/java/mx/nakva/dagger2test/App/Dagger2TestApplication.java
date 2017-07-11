@@ -23,6 +23,6 @@ public class Dagger2TestApplication extends Application {
     }
 
     protected AppComponent initDagger(Dagger2TestApplication application) {
-        return DaggerAppComponent.builder().build();
+        return DaggerAppComponent.builder().appModule(new AppModule(application)).build();
     }
 }

@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.inputPassword)
     EditText inputPassword;
 
+    private LoginPresenter mPresenter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -31,10 +33,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         ButterKnife.bind(this);
+        this.mPresenter = new LoginPresenter();
     }
 
     @OnClick(R.id.btnLogin)
     public void onClickLogin() {
-
+        this.mPresenter.onClickLoginButton();
     }
 }

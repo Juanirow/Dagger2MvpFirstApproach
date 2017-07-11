@@ -5,9 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import mx.nakva.dagger2test.App.Dagger2TestApplication;
 import mx.nakva.dagger2test.R;
 
 /**
@@ -24,7 +27,9 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.inputPassword)
     EditText inputPassword;
 
-    private LoginPresenter mPresenter;
+    @Inject
+    LoginPresenter mPresenter;
+
 
 
     @Override
@@ -32,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        ((Dagger2TestApplication)getApplication()).getAppComponent().inject(this);
         ButterKnife.bind(this);
-        this.mPresenter = new LoginPresenter();
     }
 
     @OnClick(R.id.btnLogin)
